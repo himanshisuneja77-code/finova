@@ -7,8 +7,7 @@
 
   <title>Finova - Smart Finance Tracker</title>
 
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-
+  <link rel="icon" href="logo.jpeg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: 'class' }
@@ -54,11 +53,11 @@
     }
 
     .glass {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
   </style>
 
 </head>
@@ -68,211 +67,208 @@ from-white via-purple-50 to-indigo-100
 dark:from-[#020617] dark:via-[#0f172a] dark:to-[#020617]
 text-slate-900 dark:text-white">
   <div x-cloak>
-   <!-- LANDING PAGE -->
-<div x-cloak x-show="screen==='landing'">
+    <!-- LANDING PAGE -->
+    <div x-cloak x-show="screen==='landing'">
 
-  <!-- NAVBAR -->
-  <nav class="sticky top-0 z-50 bg-white dark:bg-[#0f172a]/80 backdrop-blur border-b">
-    <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+      <!-- NAVBAR -->
+      <nav class="sticky top-0 z-50 bg-white dark:bg-[#0f172a]/80 backdrop-blur border-b">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
 
-      <!-- LOGO -->
-      <div class="flex items-center gap-2">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-8">
-        <h1 class="font-bold text-xl">Finova</h1>
-      </div>
+          <!-- LOGO -->
+          <div class="flex items-center gap-2">
+            <img src="logo.jpeg" class="w-8">
+            <h1 class="font-bold text-xl">Finova</h1>
+          </div>
 
-      <!-- DESKTOP LINKS -->
-      <div class="hidden md:flex gap-6">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#contact">Contact</a>
-      </div>
+          <!-- DESKTOP LINKS -->
+          <div class="hidden md:flex gap-6">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+          </div>
 
-      <!-- RIGHT SECTION -->
-      <div class="flex items-center gap-3">
-        <button @click="toggleDark()">
-          <span x-text="darkMode ? '☀️' : '🌙'"></span>
-        </button>
+          <!-- RIGHT SECTION -->
+          <div class="flex items-center gap-3">
+            <button @click="toggleDark()">
+              <span x-text="darkMode ? '☀️' : '🌙'"></span>
+            </button>
+
+            <button @click="screen='auth'" class="btn-primary px-8 py-4 rounded-xl font-bold">
+              Start Free 🚀
+            </button>
+
+            <button class="md:hidden" @click="menu=!menu">☰</button>
+          </div>
+
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div x-show="menu" x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-4" class="md:hidden px-6 pb-4 space-y-2">
+          <a href="#home" @click="menu=false">Home</a>
+          <a href="#about" @click="menu=false">About</a>
+          <a href="#features" @click="menu=false">Features</a>
+          <a href="#contact" @click="menu=false">Contact</a>
+        </div>
+      </nav>
+      <!-- HERO SECTION -->
+      <section id="home" class="text-center px-6 py-24 max-w-5xl mx-auto">
+        <img src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png" class="w-24 mx-auto mb-6">
+        <h1 class="text-5xl font-bold mb-6">Take Control of Your Finances 💰</h1>
+        <p class="opacity-70 mb-8">Track income, manage expenses, and achieve your goals easily.</p>
+        <h2 class="text-3xl font-bold mb-4">Start Managing Today</h2>
 
         <button @click="screen='auth'" class="btn-primary px-8 py-4 rounded-xl font-bold">
           Start Free 🚀
         </button>
+      </section>
 
-        <button class="md:hidden" @click="menu=!menu">☰</button>
-      </div>
+      <!-- ABOUT SECTION -->
+      <section id="about" class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/1904/1904119.png" class="w-full max-w-md mx-auto">
+        <div>
+          <h2 class="text-4xl font-bold mb-6">What is Finova?</h2>
+          <p class="text-lg opacity-70 mb-6 leading-relaxed">
+            Finova is a modern finance tracking web application designed to help individuals
+            and businesses manage their money efficiently. Track income, monitor expenses, and gain insights.
+          </p>
+          <p class="opacity-60 mb-6">
+            Whether you're a student or a professional, Finova simplifies financial management with an intuitive
+            interface.
+          </p>
+        </div>
+      </section>
+      <!-- HOW TO USE SECTION -->
+      <section class="max-w-6xl mx-auto px-6 py-16 text-center">
+        <h2 class="text-3xl font-bold mb-10">How to Use Finova 🚀</h2>
+        <div class="grid gap-8"> <!-- removed md:grid-cols-4 to stack vertically -->
+
+          <!-- Step 1: Signup / Login -->
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
+            <img src="login.png" class="w-30 mx-auto mb-4" alt="Login Page">
+            <h3 class="font-bold">1. Signup / Login</h3>
+            <p class="text-sm opacity-60">Create your account or login to start tracking</p>
+          </div>
+
+          <!-- Step 2: Add Transactions -->
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
+            <img src="transaction.png" class="w-30 mx-auto mb-4" alt="Add Transaction">
+            <h3 class="font-bold">2. Add Transactions</h3>
+            <p class="text-sm opacity-60">Record income & expenses easily</p>
+          </div>
+
+          <!-- Step 3: Analytics -->
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
+            <img src="bar_graph.png" class="w-30 mx-auto mb-2" alt="Bar Chart Analysis">
+            <img src="pie_chart.png" class="w-22 mx-auto mb-2" alt="Pie Chart Analysis">
+            <h3 class="font-bold">3. Track Analytics</h3>
+            <p class="text-sm opacity-60">Visual insights with bar & pie charts</p>
+          </div>
+
+          <!-- Step 4: Add Goals -->
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
+            <img src="goal.png" class="w-30 mx-auto mb-4" alt="Add Goal">
+            <h3 class="font-bold">4. Set Goals</h3>
+            <p class="text-sm opacity-60">Plan and achieve your savings goals</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES SECTION -->
+      <h2 class="text-3xl font-bold mb-10" style="text-align: center;">Features</h2>
+
+      <section id="features" class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10 text-center">
+        <!-- Feature 1 -->
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Smart Expense Tracking</h3>
+          <p class="opacity-60">Categorize and monitor your daily spending easily</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Real-time Analytics</h3>
+          <p class="opacity-60">Visual insights with charts and summaries</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Goal Management</h3>
+          <p class="opacity-60">Set and track your savings goals efficiently</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="logo.jpeg" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Budget Planner</h3>
+          <p class="opacity-60">Plan monthly budgets and stick to your limits</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135747.png" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Recurring Payments</h3>
+          <p class="opacity-60">Set reminders for bills and recurring expenses</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Multi-Currency Support</h3>
+          <p class="opacity-60">Track expenses in different currencies seamlessly</p>
+        </div>
+
+        <!-- Optional Features 7 & 8 (if you want 2 more) -->
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135745.png" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Custom Categories</h3>
+          <p class="opacity-60">Create your own categories to organize transactions</p>
+        </div>
+
+        <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
+          <img src="https://cdn-icons-png.flaticon.com/512/2921/2921821.png" class="w-14 mx-auto mb-4">
+          <h3 class="font-bold text-lg">Export & Reports</h3>
+          <p class="opacity-60">Download reports in CSV or PDF for personal or business use</p>
+        </div>
+
+      </section>
+      <!-- FOOTER -->
+      <footer id="contact" class="bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-6">
+          <div>
+            <h2 class="font-bold mb-2">Finova</h2>
+            <p class="opacity-70 text-sm">Smart finance tracker</p>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Links</h3>
+            <ul class="space-y-1 text-sm opacity-70">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#features">Features</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Features</h3>
+            <ul class="text-sm opacity-70">
+              <li>Tracking</li>
+              <li>Analytics</li>
+              <li>Goals</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Contact</h3>
+            <p class="text-sm opacity-70">support@finova.com</p>
+          </div>
+        </div>
+        <div class="text-center mt-6 text-sm opacity-60">© 2026 Finova</div>
+      </footer>
 
     </div>
-
-    <!-- MOBILE MENU -->
-    <div x-show="menu" 
-     x-transition:enter="transition ease-out duration-300" 
-     x-transition:enter-start="opacity-0 -translate-y-4" 
-     x-transition:enter-end="opacity-100 translate-y-0"
-     x-transition:leave="transition ease-in duration-200" 
-     x-transition:leave-start="opacity-100 translate-y-0" 
-     x-transition:leave-end="opacity-0 -translate-y-4"
-     class="md:hidden px-6 pb-4 space-y-2">
-  <a href="#home" @click="menu=false">Home</a>
-<a href="#about" @click="menu=false">About</a>
-<a href="#features" @click="menu=false">Features</a>
-<a href="#contact" @click="menu=false">Contact</a>
-</div>
-</nav>
-  <!-- HERO SECTION -->
-  <section id="home" class="text-center px-6 py-24 max-w-5xl mx-auto">
-    <img src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png" class="w-24 mx-auto mb-6">
-    <h1 class="text-5xl font-bold mb-6">Take Control of Your Finances 💰</h1>
-    <p class="opacity-70 mb-8">Track income, manage expenses, and achieve your goals easily.</p>
-    <h2 class="text-3xl font-bold mb-4">Start Managing Today</h2>
-
-    <button @click="screen='auth'" class="btn-primary px-8 py-4 rounded-xl font-bold">
-      Start Free 🚀
-    </button>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-    <img src="https://cdn-icons-png.flaticon.com/512/1904/1904119.png" class="w-full max-w-md mx-auto">
-    <div>
-      <h2 class="text-4xl font-bold mb-6">What is Finova?</h2>
-      <p class="text-lg opacity-70 mb-6 leading-relaxed">
-        Finova is a modern finance tracking web application designed to help individuals
-        and businesses manage their money efficiently. Track income, monitor expenses, and gain insights.
-      </p>
-      <p class="opacity-60 mb-6">
-        Whether you're a student or a professional, Finova simplifies financial management with an intuitive interface.
-      </p>
-    </div>
-  </section>
-  <!-- HOW TO USE SECTION -->
-<section class="max-w-6xl mx-auto px-6 py-16 text-center">
-  <h2 class="text-3xl font-bold mb-10">How to Use Finova 🚀</h2>
-  <div class="grid gap-8"> <!-- removed md:grid-cols-4 to stack vertically -->
-
-    <!-- Step 1: Signup / Login -->
-    <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
-      <img src="login.png" class="w-30 mx-auto mb-4" alt="Login Page">
-      <h3 class="font-bold">1. Signup / Login</h3>
-      <p class="text-sm opacity-60">Create your account or login to start tracking</p>
-    </div>
-
-    <!-- Step 2: Add Transactions -->
-    <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
-      <img src="transaction.png" class="w-30 mx-auto mb-4" alt="Add Transaction">
-      <h3 class="font-bold">2. Add Transactions</h3>
-      <p class="text-sm opacity-60">Record income & expenses easily</p>
-    </div>
-
-    <!-- Step 3: Analytics -->
-    <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
-      <img src="bar_graph.png" class="w-30 mx-auto mb-2" alt="Bar Chart Analysis">
-      <img src="pie_chart.png" class="w-22 mx-auto mb-2" alt="Pie Chart Analysis">
-      <h3 class="font-bold">3. Track Analytics</h3>
-      <p class="text-sm opacity-60">Visual insights with bar & pie charts</p>
-    </div>
-
-    <!-- Step 4: Add Goals -->
-    <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow">
-      <img src="goal.png" class="w-30 mx-auto mb-4" alt="Add Goal">
-      <h3 class="font-bold">4. Set Goals</h3>
-      <p class="text-sm opacity-60">Plan and achieve your savings goals</p>
-    </div>
-    </div>
-</section>
-
-  <!-- FEATURES SECTION -->
-     <h2 class="text-3xl font-bold mb-10" style="text-align: center;">Features</h2>
-
-<section id="features" class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10 text-center">
-  <!-- Feature 1 -->
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Smart Expense Tracking</h3>
-    <p class="opacity-60">Categorize and monitor your daily spending easily</p>
-  </div>
-
-  <!-- Feature 2 -->
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Real-time Analytics</h3>
-    <p class="opacity-60">Visual insights with charts and summaries</p>
-  </div>
-
-  <!-- Feature 3 -->
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Goal Management</h3>
-    <p class="opacity-60">Set and track your savings goals efficiently</p>
-  </div>
-
-  <!-- Feature 4 -->
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Budget Planner</h3>
-    <p class="opacity-60">Plan monthly budgets and stick to your limits</p>
-  </div>
-
-  <!-- Feature 5 -->
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135747.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Recurring Payments</h3>
-    <p class="opacity-60">Set reminders for bills and recurring expenses</p>
-  </div>
-
-  <!-- Feature 6 -->
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Multi-Currency Support</h3>
-    <p class="opacity-60">Track expenses in different currencies seamlessly</p>
-  </div>
-
-  <!-- Optional Features 7 & 8 (if you want 2 more) -->
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135745.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Custom Categories</h3>
-    <p class="opacity-60">Create your own categories to organize transactions</p>
-  </div>
-
-  <div class="p-6 border rounded-xl feature-card bg-white dark:bg-slate-800">
-    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921821.png" class="w-14 mx-auto mb-4">
-    <h3 class="font-bold text-lg">Export & Reports</h3>
-    <p class="opacity-60">Download reports in CSV or PDF for personal or business use</p>
-  </div>
-
-</section>
-  <!-- FOOTER -->
-  <footer id="contact" class="bg-slate-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-6">
-      <div>
-        <h2 class="font-bold mb-2">Finova</h2>
-        <p class="opacity-70 text-sm">Smart finance tracker</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Links</h3>
-        <ul class="space-y-1 text-sm opacity-70">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Features</h3>
-        <ul class="text-sm opacity-70">
-          <li>Tracking</li>
-          <li>Analytics</li>
-          <li>Goals</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Contact</h3>
-        <p class="text-sm opacity-70">support@finova.com</p>
-      </div>
-    </div>
-    <div class="text-center mt-6 text-sm opacity-60">© 2026 Finova</div>
-  </footer>
-
-</div>
     <!-- END LANDING -->
 
     <!-- AUTH -->
@@ -316,22 +312,20 @@ text-slate-900 dark:text-white">
       <nav class="p-4 flex justify-between bg-white dark:bg-[#0f172a] shadow">
         <h1 class="font-bold">💰 Finova</h1>
 
-       <div class="flex gap-4">
-  <button @click="tab='dashboard'" 
-    :class="tab==='dashboard' ? 'text-purple-600 font-bold' : ''">Dashboard</button>
+        <div class="flex gap-4">
+          <button @click="tab='dashboard'"
+            :class="tab==='dashboard' ? 'text-purple-600 font-bold' : ''">Dashboard</button>
 
-  <button @click="tab='add'" 
-    :class="tab==='add' ? 'text-purple-600 font-bold' : ''">Add</button>
+          <button @click="tab='add'" :class="tab==='add' ? 'text-purple-600 font-bold' : ''">Add</button>
 
-  <button @click="tab='analytics'; $nextTick(()=>renderChart())" 
-    :class="tab==='analytics' ? 'text-purple-600 font-bold' : ''">Analytics</button>
+          <button @click="tab='analytics'; $nextTick(()=>renderChart())"
+            :class="tab==='analytics' ? 'text-purple-600 font-bold' : ''">Analytics</button>
 
-  <button @click="tab='goals'" 
-    :class="tab==='goals' ? 'text-purple-600 font-bold' : ''">Goals</button>
+          <button @click="tab='goals'" :class="tab==='goals' ? 'text-purple-600 font-bold' : ''">Goals</button>
 
-  <button @click="logout()">Logout</button>
-</div>
-</nav>
+          <button @click="logout()">Logout</button>
+        </div>
+      </nav>
       <div class="p-6 max-w-6xl mx-auto">
 
         <!-- DASHBOARD TAB -->
@@ -340,175 +334,173 @@ text-slate-900 dark:text-white">
 
           <div class="grid md:grid-cols-3 gap-4 mb-6">
             <div class="p-4 rounded shadow bg-green-100 text-green-700">
-  Income ₹<span x-text="income"></span>
-</div>
+              Income ₹<span x-text="income"></span>
+            </div>
 
-<div class="p-4 rounded shadow bg-red-100 text-red-700">
-  Expense ₹<span x-text="expense"></span>
-</div>
+            <div class="p-4 rounded shadow bg-red-100 text-red-700">
+              Expense ₹<span x-text="expense"></span>
+            </div>
 
-<div class="p-4 rounded shadow bg-purple-100 text-purple-700">
-  Balance ₹<span x-text="income-expense"></span>
-</div>
+            <div class="p-4 rounded shadow bg-purple-100 text-purple-700">
+              Balance ₹<span x-text="income-expense"></span>
+            </div>
           </div>
 
           <input x-model="search" placeholder="Search..." class="border p-2 mb-4 w-full text-black">
-<button 
-  @click="exportTransactions()" 
-  class="bg-green-600 text-white px-4 py-2 rounded mb-4">
-  Download CSV 📥
-</button>
-<input 
-  type="number" 
-  x-model="monthlyBudget"
-  @input="checkBudget()"
-  placeholder="Set Monthly Budget"
-  class="border p-2 mb-4 w-full text-black">
-<!-- Budget warning -->
-<div x-show="budgetWarning" class="bg-red-500 text-white p-2 rounded mb-4">
-  <span x-text="budgetWarning"></span>
-</div>
-<div x-show="transactions.length === 0" class="text-center opacity-60 mt-6">
-  No transactions yet 😔  
-  <br> Start by adding one!
-</div>
+          <button @click="exportTransactions()" class="bg-green-600 text-white px-4 py-2 rounded mb-4">
+            Download CSV 📥
+          </button>
+          <input type="number" x-model="monthlyBudget" @input="checkBudget()" placeholder="Set Monthly Budget"
+            class="border p-2 mb-4 w-full text-black">
+          <!-- Budget warning -->
+          <div x-show="budgetWarning" class="bg-red-500 text-white p-2 rounded mb-4">
+            <span x-text="budgetWarning"></span>
+          </div>
+          <div x-show="transactions.length === 0" class="text-center opacity-60 mt-6">
+            No transactions yet 😔
+            <br> Start by adding one!
+          </div>
           <template x-for="(t,index) in filteredTransactions" :key="t.id">
-  <div class="flex justify-between border-b p-2 items-center">
-    <div>
-      <span x-text="t.category"></span>
-      <small class="block text-xs opacity-60">
-        <span x-text="t.type"></span> | 
-        <span x-text="t.recurring ? 'Recurring' : 'One-time'"></span> | 
-        <span x-text="t.currency"></span> | 
-        <span x-text="formatDate(t.date)"></span>
-      </small>
-    </div>
+            <div class="flex justify-between border-b p-2 items-center">
+              <div>
+                <span x-text="t.category"></span>
+                <small class="block text-xs opacity-60">
+                  <span x-text="t.type"></span> |
+                  <span x-text="t.recurring ? 'Recurring' : 'One-time'"></span> |
+                  <span x-text="t.currency"></span> |
+                  <span x-text="formatDate(t.date)"></span>
+                </small>
+              </div>
 
-    <div class="flex gap-3 items-center">
-      <span x-text="t.currency + ' ' + t.amount"></span>
-      <button @click="editTransaction(index)">✏️</button>
-      <button @click="deleteTransaction(index)">❌</button>
-    </div>
-    </div>
-</template>
+              <div class="flex gap-3 items-center">
+                <span x-text="t.currency + ' ' + t.amount"></span>
+                <button @click="editTransaction(index)">✏️</button>
+                <button @click="deleteTransaction(index)">❌</button>
+              </div>
+            </div>
+          </template>
         </div>
-       <!-- ADD TAB -->
-<div x-show="tab==='add'">
-  <h2 class="text-xl font-bold mb-4">Add Transaction</h2>
+        <!-- ADD TAB -->
+        <div x-show="tab==='add'">
+          <h2 class="text-xl font-bold mb-4">Add Transaction</h2>
 
-  <!-- Type first -->
-  <select x-model="type" class="border p-2 w-full mb-2 text-black">
-    <option value="income">Income</option>
-    <option value="expense">Expense</option>
-  </select>
+          <!-- Type first -->
+          <select x-model="type" class="border p-2 w-full mb-2 text-black">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
 
-  <!-- Category Dropdown -->
-  <select x-model="category" class="border p-2 w-full mb-2 text-black">
-<option value="" disabled>Select Category</option>
-    <template x-for="cat in categories" :key="cat">
-      <option :value="cat" x-text="cat"></option>
-    </template>
-  </select>
+          <!-- Category Dropdown -->
+          <select x-model="category" class="border p-2 w-full mb-2 text-black">
+            <option value="" disabled>Select Category</option>
+            <template x-for="cat in categories" :key="cat">
+              <option :value="cat" x-text="cat"></option>
+            </template>
+          </select>
 
-  <!-- Add Custom Category -->
-  <div class="flex gap-2 mb-2">
-    <input x-model="newCategory" placeholder="New Category" class="border p-2 w-full text-black">
-    <button @click="addCategory()" class="bg-purple-600 text-white px-4 rounded">Add</button>
-  </div>
-<!--Date-->
-<input type="date" x-model="date" class="border p-2 w-full mb-2 text-black">
-  <!-- Amount -->
-  <input x-model="amount" type="number" placeholder="Amount" class="border p-2 w-full mb-2 text-black">
+          <!-- Add Custom Category -->
+          <div class="flex gap-2 mb-2">
+            <input x-model="newCategory" placeholder="New Category" class="border p-2 w-full text-black">
+            <button @click="addCategory()" class="bg-purple-600 text-white px-4 rounded">Add</button>
+          </div>
+          <!--Date-->
+          <input type="date" x-model="date" class="border p-2 w-full mb-2 text-black">
+          <!-- Amount -->
+          <input x-model="amount" type="number" placeholder="Amount" class="border p-2 w-full mb-2 text-black">
 
-  <!-- Recurring -->
-  <label class="flex items-center gap-2 mb-2">
-    <input type="checkbox" x-model="isRecurring">
-    <span class="text-sm">Recurring Payment</span>
-  </label>
+          <!-- Recurring -->
+          <label class="flex items-center gap-2 mb-2">
+            <input type="checkbox" x-model="isRecurring">
+            <span class="text-sm">Recurring Payment</span>
+          </label>
 
-  <!-- Currency -->
-  <select x-model="currency" class="border p-2 w-full mb-2 text-black">
-    <template x-for="c in currencies" :key="c">
-      <option :value="c" x-text="c"></option>
-    </template>
-  </select>
+          <!-- Currency -->
+          <select x-model="currency" class="border p-2 w-full mb-2 text-black">
+            <template x-for="c in currencies" :key="c">
+              <option :value="c" x-text="c"></option>
+            </template>
+          </select>
 
-  <!-- Save Button -->
-  <button @click="addTransaction()" class="bg-purple-600 text-white px-4 py-2 rounded w-full">
-    Save Transaction
-  </button>
-</div>
+          <!-- Save Button -->
+          <button @click="addTransaction()" class="bg-purple-600 text-white px-4 py-2 rounded w-full">
+            Save Transaction
+          </button>
+        </div>
 
-  
+
 
         <!-- ANALYTICS -->
+        <!-- ANALYTICS -->
 <div x-show="tab==='analytics'">
+
   <div class="flex justify-center mb-4 gap-4">
-    <button 
-  @click="exportTransactions()" 
-  class="bg-green-600 text-white px-4 py-2 rounded mb-4">
-  Export Data 📊
-</button>
-    <button @click="chartType='bar'; $nextTick(()=>renderChart())" 
-            class="bg-purple-600 text-white px-4 py-2 rounded" 
-            :class="{'bg-purple-800': chartType==='bar'}">
+    <button @click="exportTransactions()" class="bg-green-600 text-white px-4 py-2 rounded">
+      Export Data 📊
+    </button>
+
+    <button @click="chartType='bar'; $nextTick(()=>renderChart())"
+      class="bg-purple-600 text-white px-4 py-2 rounded"
+      :class="{'bg-purple-800': chartType==='bar'}">
       Bar Chart
     </button>
-    <button @click="chartType='pie'; $nextTick(()=>renderChart())" 
-            class="bg-purple-600 text-white px-4 py-2 rounded"
-            :class="{'bg-purple-800': chartType==='pie'}">
+
+    <button @click="chartType='pie'; $nextTick(()=>renderChart())"
+      class="bg-purple-600 text-white px-4 py-2 rounded"
+      :class="{'bg-purple-800': chartType==='pie'}">
       Pie Chart
     </button>
-    
   </div>
 
-  <canvas id="chart"></canvas>
-</div>
+  <!-- CHART FIXED SIZE -->
+  <div class="flex justify-center">
+    <div style="width:300px; height:300px;">
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
 
+</div> 
         <!-- GOALS -->
         <div x-show="tab==='goals'">
           <h2 class="text-xl font-bold mb-4">Goals</h2>
 
           <input x-model="goalName" placeholder="Goal" class="border p-2 mb-2 text-black">
 
-<input x-model.number="goalAmount" placeholder="Amount" type="number" class="border p-2 mb-2 text-black">
+          <input x-model.number="goalAmount" placeholder="Amount" type="number" class="border p-2 mb-2 text-black">
 
-<button @click="addGoal()" class="bg-purple-600 text-white px-4 py-2 rounded">
+          <button @click="addGoal()" class="bg-purple-600 text-white px-4 py-2 rounded">
             Add Goal
           </button>
-         <template x-for="(g,index) in goals">
-  <div class="border p-4 mb-4 rounded bg-white dark:bg-slate-800">
+          <template x-for="(g,index) in goals">
+            <div class="border p-4 mb-4 rounded bg-white dark:bg-slate-800">
 
-    <!-- Title -->
-    <div class="flex justify-between">
-      <h3 class="font-bold" x-text="g.name"></h3>
-      <span>₹<span x-text="g.saved"></span> / ₹<span x-text="g.amount"></span></span>
-    </div>
+              <!-- Title -->
+              <div class="flex justify-between">
+                <h3 class="font-bold" x-text="g.name"></h3>
+                <span>₹<span x-text="g.saved"></span> / ₹<span x-text="g.amount"></span></span>
+              </div>
 
-    <!-- Progress Bar -->
-    <div class="w-full bg-gray-300 rounded h-3 mt-2">
-     <div 
-  class="bg-green-500 h-3 rounded"
-  :style="'width:' + (g.amount ? (g.saved/g.amount)*100 : 0) + '%'">
-</div>
-</div>
+              <!-- Progress Bar -->
+              <div class="w-full bg-gray-300 rounded h-3 mt-2">
+                <div class="bg-green-500 h-3 rounded" :style="'width:' + (g.amount ? (g.saved/g.amount)*100 : 0) + '%'">
+                </div>
+              </div>
 
-    <!-- Percentage -->
-    <p class="text-sm mt-1 opacity-70">
-<span x-text="g.amount ? Math.floor((g.saved/g.amount)*100) : 0"></span>%
-    </p>
+              <!-- Percentage -->
+              <p class="text-sm mt-1 opacity-70">
+                <span x-text="g.amount ? Math.floor((g.saved/g.amount)*100) : 0"></span>%
+              </p>
 
-    <!-- Buttons -->
-    <div class="flex gap-2 mt-3">
-      <button @click="addMoneyToGoal(index)" class="bg-green-600 text-white px-3 py-1 rounded">
-        Add Money 💰
-      </button>
-  
-      <button @click="editGoal(index)">✏️</button>
-      <button @click="deleteGoal(index)">❌</button>
-    </div>
+              <!-- Buttons -->
+              <div class="flex gap-2 mt-3">
+                <button @click="addMoneyToGoal(index)" class="bg-green-600 text-white px-3 py-1 rounded">
+                  Add Money 💰
+                </button>
 
-  </div>
+                <button @click="editGoal(index)">✏️</button>
+                <button @click="deleteGoal(index)">❌</button>
+              </div>
+
+            </div>
           </template>
 
 
@@ -517,228 +509,249 @@ text-slate-900 dark:text-white">
       </div>
 
     </div>
-<script>
-function app() {
-  return {
-    // SCREEN & AUTH
-    screen: 'landing',
-    mode: 'login',
-    tab: 'dashboard',
-    email: '',
-    password: '',
-    darkMode: true,
-    menu: false,
+    <script>
+      function app() {
+        return {
+          // SCREEN & AUTH
+          screen: 'landing',
+          mode: 'login',
+          tab: 'dashboard',
+          email: '',
+          password: '',
+          darkMode: true,
+          menu: false,
 
-    // TRANSACTIONS & GOALS
-    transactions: JSON.parse(localStorage.getItem('transactions')) || [],
-    goals: JSON.parse(localStorage.getItem('goals')) || [],
-    type: 'income',
-    category: '',
-    amount: '',
-    search: '',
-    goalName: '',
-    goalAmount: '',
-    date: '',
-    editingGoalIndex: undefined,
-    categories: JSON.parse(localStorage.getItem('categories')) || ['Food','Salary','Shopping','Bills','Entertainment','Transport','Health','Others'],
+          // TRANSACTIONS & GOALS
+          transactions: JSON.parse(localStorage.getItem('transactions')) || [],
+          goals: JSON.parse(localStorage.getItem('goals')) || [],
+          type: 'income',
+          category: '',
+          amount: '',
+          search: '',
+          goalName: '',
+          goalAmount: '',
+          date: '',
+          editingGoalIndex: undefined,
+          categories: JSON.parse(localStorage.getItem('categories')) || ['Food', 'Salary', 'Shopping', 'Bills', 'Entertainment', 'Transport', 'Health', 'Others'],
 
-    // CHARTS
-    chart: null,
-    chartType: 'bar',
+          // CHARTS
+          chart: null,
+          chartType: 'bar',
 
-    // NEW FEATURES
-    monthlyBudget: 0,
-    budgetWarning: '',
-    newCategory: '',
-    isRecurring: false,
-    currency: 'INR',
-    currencies: ['INR','USD','EUR','GBP','JPY'],
+          // NEW FEATURES
+          monthlyBudget: 0,
+          budgetWarning: '',
+          newCategory: '',
+          isRecurring: false,
+          currency: 'INR',
+          currencies: ['INR', 'USD', 'EUR', 'GBP', 'JPY'],
 
-    // INITIALIZE
-   init() {
-  this.darkMode = JSON.parse(localStorage.getItem('darkMode')) ?? true;
-  this.categories = JSON.parse(localStorage.getItem('categories')) || ['Food','Salary','Shopping','Bills','Entertainment','Transport','Health','Others'];
-  
-  // Correctly pull the saved budget
-  const savedBudget = localStorage.getItem('budget');
-  this.monthlyBudget = savedBudget ? parseFloat(savedBudget) : 0;
+          // INITIALIZE
+          init() {
+            this.darkMode = JSON.parse(localStorage.getItem('darkMode')) ?? true;
+            this.categories = JSON.parse(localStorage.getItem('categories')) || ['Food', 'Salary', 'Shopping', 'Bills', 'Entertainment', 'Transport', 'Health', 'Others'];
 
-  if(localStorage.getItem('loggedIn')) this.screen = 'dashboard';
-  this.checkBudget(); // Run check immediately on load
-},
+            // Correctly pull the saved budget
+            const savedBudget = localStorage.getItem('budget');
+            this.monthlyBudget = savedBudget ? parseFloat(savedBudget) : 0;
 
-    toggleDark() {
-      this.darkMode = !this.darkMode;
-      localStorage.setItem('darkMode', this.darkMode);
-    },
+            if (localStorage.getItem('loggedIn')) this.screen = 'dashboard';
+            this.checkBudget(); // Run check immediately on load
+          },
 
-    // AUTH
-    signup() {
-      localStorage.setItem('user', JSON.stringify({email: this.email, password: this.password}));
-      alert('Signup successful'); 
-      this.mode = 'login';
-    },
+          toggleDark() {
+            this.darkMode = !this.darkMode;
+            localStorage.setItem('darkMode', this.darkMode);
+          },
 
-    login() {
-      let user = JSON.parse(localStorage.getItem('user'));
-      if(user && user.email === this.email && user.password === this.password){
-        localStorage.setItem('loggedIn', 'true'); 
-        this.screen = 'dashboard';
-      } else { 
-        alert('Invalid credentials'); 
-      }
-    },
- 
-    formatDate(date){
-  return new Date(date).toLocaleDateString('en-IN');
-},
+          // AUTH
+          signup() {
+            localStorage.setItem('user', JSON.stringify({ email: this.email, password: this.password }));
+            alert('Signup successful');
+            this.mode = 'login';
+          },
+
+          login() {
+            let user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.email === this.email && user.password === this.password) {
+              localStorage.setItem('loggedIn', 'true');
+              this.screen = 'dashboard';
+            } else {
+              alert('Invalid credentials');
+            }
+          },
+
+          formatDate(date) {
+            return new Date(date).toLocaleDateString('en-IN');
+          },
 
 
 
-    logout() { 
-      localStorage.removeItem('loggedIn'); 
-      this.screen = 'landing'; 
-    },
+          logout() {
+            localStorage.removeItem('loggedIn');
+            this.screen = 'landing';
+          },
 
-    // TRANSACTION METHODS
-    async addTransaction() {
-if(!this.amount || !this.category){
-  alert("Please fill all fields");
-  return;
-}
+          // TRANSACTION METHODS
+          async addTransaction() {
+            if (!this.amount || !this.category) {
+              alert("Please fill all fields");
+              return;
+            }
 
-alert("Transaction added successfully ✅");
-  let finalAmount = parseFloat(this.amount);
+            alert("Transaction added successfully ✅");
+            let finalAmount = parseFloat(this.amount);
 
-  // Convert to INR if needed
-  if(this.currency !== 'INR') {
-    finalAmount = await this.convertCurrency(finalAmount, this.currency, 'INR');
-    finalAmount = parseFloat(finalAmount);
+            // Convert to INR if needed
+            if (this.currency !== 'INR') {
+              finalAmount = await this.convertCurrency(finalAmount, this.currency, 'INR');
+              finalAmount = parseFloat(finalAmount);
+            }
+
+            let transaction = {
+              id: Date.now(),
+              type: this.type,
+              category: this.category,
+              amount: finalAmount,
+              originalAmount: this.amount,
+              originalCurrency: this.currency,
+              date: this.date || new Date().toISOString().split('T')[0],
+              recurring: this.isRecurring,
+              currency: this.currency
+            };
+
+            this.transactions.unshift(transaction);
+
+            // Sort latest first
+            this.transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            localStorage.setItem('transactions', JSON.stringify(this.transactions));
+
+            // Reset fields
+            this.category = '';
+            this.amount = '';
+            this.type = 'income';
+            this.isRecurring = false;
+            this.currency = 'INR';
+            this.date = '';
+            this.newCategory = '';
+            this.$nextTick(() => { });
+            this.checkBudget();
+          },
+
+          deleteTransaction(index) {
+            if (confirm('Delete this transaction?')) {
+              this.transactions.splice(index, 1);
+              localStorage.setItem('transactions', JSON.stringify(this.transactions));
+              this.checkBudget();
+            }
+          },
+
+          editTransaction(index) {
+            let t = this.transactions[index];
+            this.type = t.type;
+            this.category = t.category;
+            this.amount = t.amount;
+            this.date = t.date;
+            this.isRecurring = t.recurring;
+            this.currency = t.currency;
+
+            this.transactions.splice(index, 1);
+            localStorage.setItem('transactions', JSON.stringify(this.transactions));
+
+            this.tab = 'add';
+          },
+
+          // GOALS
+          addGoal() {
+            if (!this.goalName || !this.goalAmount || this.goalAmount <= 0) {
+              alert("Enter valid goal details");
+              return;
+            }
+
+            if (this.editingGoalIndex !== undefined) {
+              this.goals[this.editingGoalIndex] = {
+                name: this.goalName,
+                amount: Number(this.goalAmount),
+                saved: this.goals[this.editingGoalIndex].saved || 0
+              };
+              this.editingGoalIndex = undefined;
+            } else {
+              this.goals.push({
+                name: this.goalName,
+                amount: Number(this.goalAmount),
+                saved: 0
+              });
+            }
+
+            localStorage.setItem('goals', JSON.stringify(this.goals));
+
+            // ✅ reset form
+            this.goalName = '';
+            this.goalAmount = '';
+
+            alert("Goal added successfully 🎯");
+          },
+          editGoal(index) {
+            let g = this.goals[index];
+
+            this.goalName = g.name;
+            this.goalAmount = g.amount;
+            this.editingGoalIndex = index;
+          },
+
+          deleteGoal(index) {
+            if (confirm("Delete this goal?")) {
+              this.goals.splice(index, 1);
+              localStorage.setItem('goals', JSON.stringify(this.goals));
+            }
+          },
+          addMoneyToGoal(index) {
+            let value = prompt("Enter amount to add:");
+            value = Number(value);
+
+            if (!value || value <= 0) {
+              alert("Enter valid amount");
+              return;
+            }
+
+            this.goals[index].saved += value;
+
+            if (this.goals[index].saved > this.goals[index].amount) {
+              this.goals[index].saved = this.goals[index].amount;
+            }
+
+            localStorage.setItem('goals', JSON.stringify(this.goals));
+          },
+
+          // CHARTS
+renderChart() {
+  const canvas = document.getElementById('chart');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+
+  // Destroy old chart safely
+  if (this.chart) {
+    this.chart.destroy();
+    this.chart = null;
   }
 
-  let transaction = {
-    id: Date.now(),
-    type: this.type,
-    category: this.category,
-    amount: finalAmount,
-    originalAmount: this.amount,
-    originalCurrency: this.currency,
-    date: this.date || new Date().toISOString().split('T')[0],
-    recurring: this.isRecurring,
-    currency: this.currency
+  const textColor = this.darkMode ? '#fff' : '#000';
+
+  const commonOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: textColor
+        }
+      }
+    }
   };
 
-  this.transactions.unshift(transaction);
-
-  // Sort latest first
-  this.transactions.sort((a,b)=> new Date(b.date) - new Date(a.date));
-
-  localStorage.setItem('transactions', JSON.stringify(this.transactions));
-
-  // Reset fields
-  this.category = '';
-this.amount = '';
-this.type = 'income';
-this.isRecurring = false;
-this.currency = 'INR';
-this.date = '';
-this.newCategory = '';
-this.$nextTick(() => {});
-  this.checkBudget();
-},
-  
-deleteTransaction(index) {
-  if(confirm('Delete this transaction?')) {
-    this.transactions.splice(index, 1);
-    localStorage.setItem('transactions', JSON.stringify(this.transactions));
-    this.checkBudget();
-  }
-},
-
-editTransaction(index) {
-  let t = this.transactions[index];
- this.type = t.type;
-this.category = t.category;
-this.amount = t.amount;
-this.date = t.date; 
-  this.isRecurring = t.recurring;
-  this.currency = t.currency;
-
-  this.transactions.splice(index, 1);
-  localStorage.setItem('transactions', JSON.stringify(this.transactions));
-
-  this.tab = 'add';
-},
-
-    // GOALS
- // GOALS
-addGoal() {
-  if(!this.goalName || !this.goalAmount || this.goalAmount <= 0){
-    alert("Enter valid goal details");
-    return;
-  }
-
-  if(this.editingGoalIndex !== undefined){
-    this.goals[this.editingGoalIndex] = {
-      name: this.goalName,
-      amount: Number(this.goalAmount),
-      saved: this.goals[this.editingGoalIndex].saved || 0
-    };
-    this.editingGoalIndex = undefined;
-  } else {
-    this.goals.push({
-      name: this.goalName,
-      amount: Number(this.goalAmount),
-      saved: 0
-    });
-  }
-
-  localStorage.setItem('goals', JSON.stringify(this.goals));
-
-  // ✅ reset form
-  this.goalName = '';
-  this.goalAmount = '';
-
-  alert("Goal added successfully 🎯");
-},
-editGoal(index) {
-  let g = this.goals[index];
-
-  this.goalName = g.name;
-  this.goalAmount = g.amount;
-  this.editingGoalIndex = index;
-},
-
-deleteGoal(index) {
-  if(confirm("Delete this goal?")) {
-    this.goals.splice(index, 1);
-    localStorage.setItem('goals', JSON.stringify(this.goals));
-  }
-},
-addMoneyToGoal(index) {
-  let value = prompt("Enter amount to add:");
-  value = Number(value);
-
-  if (!value || value <= 0) {
-    alert("Enter valid amount");
-    return;
-  }
-
-  this.goals[index].saved += value;
-
-  if (this.goals[index].saved > this.goals[index].amount) {
-    this.goals[index].saved = this.goals[index].amount;
-  }
-
-  localStorage.setItem('goals', JSON.stringify(this.goals));
-},
-
-    // CHARTS
-   renderChart() {
-  let ctx = document.getElementById('chart')?.getContext('2d');
-  if (!ctx) return;
-  if (this.chart) this.chart.destroy();
-
+  // BAR CHART
   if (this.chartType === 'bar') {
     this.chart = new Chart(ctx, {
       type: 'bar',
@@ -747,17 +760,32 @@ addMoneyToGoal(index) {
         datasets: [{
           label: 'Amount (₹)',
           data: [this.income, this.expense],
-          backgroundColor: ['#22c55e', '#ef4444']
+          backgroundColor: ['#22c55e', '#ef4444'],
+          borderRadius: 8
         }]
+      },
+      options: {
+        ...commonOptions,
+        scales: {
+          x: {
+            ticks: { color: textColor },
+            grid: { display: false }
+          },
+          y: {
+            ticks: { color: textColor },
+            grid: { color: this.darkMode ? '#334155' : '#e5e7eb' }
+          }
+        }
       }
     });
+  }
 
-  } else if (this.chartType === 'pie') {
-
+  // PIE CHART
+  if (this.chartType === 'pie') {
     const categoryTotals = this.categories.map(cat =>
       this.transactions
         .filter(t => t.type === 'expense' && t.category === cat)
-        .reduce((a, b) => a + b.amount, 0)
+        .reduce((sum, t) => sum + t.amount, 0)
     );
 
     this.chart = new Chart(ctx, {
@@ -766,92 +794,98 @@ addMoneyToGoal(index) {
         labels: this.categories,
         datasets: [{
           data: categoryTotals,
-          backgroundColor: this.categories.map(() => this.generateColor())
+          backgroundColor: this.categories.map(() => this.generateColor()),
+          borderWidth: 1
         }]
       },
       options: {
+        ...commonOptions,
         plugins: {
           legend: {
-            labels: { color: this.darkMode ? '#fff' : '#000' }
+            position: 'bottom',
+            labels: {
+              color: textColor,
+              padding: 12
+            }
           }
         }
       }
     });
   }
-   },
-    generateColor() {
-  const h = Math.floor(Math.random() * 360);
-  return `hsl(${h}, 70%, 60%)`;
 },
+          generateColor() {
+            const h = Math.floor(Math.random() * 360);
+            return `hsl(${h}, 70%, 60%)`;
+          },
 
-    // CALCULATED PROPERTIES
-    get income() { 
-      return this.transactions.filter(t => t.type === 'income').reduce((a, b) => a + b.amount, 0); 
-    },
+          // CALCULATED PROPERTIES
+          get income() {
+            return this.transactions.filter(t => t.type === 'income').reduce((a, b) => a + b.amount, 0);
+          },
 
-    get expense() { 
-      return this.transactions.filter(t => t.type === 'expense').reduce((a, b) => a + b.amount, 0); 
-    },
+          get expense() {
+            return this.transactions.filter(t => t.type === 'expense').reduce((a, b) => a + b.amount, 0);
+          },
 
-   get filteredTransactions() {
-  let s = this.search.toLowerCase();
-  return this.transactions.filter(t =>
-    t.category.toLowerCase().includes(s) ||
-    t.type.toLowerCase().includes(s) ||
-    t.currency.toLowerCase().includes(s) ||
-    t.amount.toString().includes(s) ||
-    t.date.includes(s)
-  );
-},
+          get filteredTransactions() {
+            let s = this.search.toLowerCase();
+            return this.transactions.filter(t =>
+              t.category.toLowerCase().includes(s) ||
+              t.type.toLowerCase().includes(s) ||
+              t.currency.toLowerCase().includes(s) ||
+              t.amount.toString().includes(s) ||
+              t.date.includes(s)
+            );
+          },
 
-    // NEW FEATURES METHODS
-    checkBudget() {
-  localStorage.setItem('budget', this.monthlyBudget);
+          // NEW FEATURES METHODS
+          checkBudget() {
+            localStorage.setItem('budget', this.monthlyBudget);
 
-  if(this.expense > this.monthlyBudget && this.monthlyBudget > 0) {
-    this.budgetWarning = "⚠️ Expense exceeded monthly budget!";
-  } else {
-    this.budgetWarning = "";
-  }
-},
+            if (this.expense > this.monthlyBudget && this.monthlyBudget > 0) {
+              this.budgetWarning = "⚠️ Expense exceeded monthly budget!";
+            } else {
+              this.budgetWarning = "";
+            }
+          },
 
-    addCategory() {
-      if(this.newCategory && !this.categories.includes(this.newCategory)) {
-        this.categories.push(this.newCategory);
-        this.newCategory = '';
-        localStorage.setItem('categories', JSON.stringify(this.categories));
-        alert('Category added successfully');
+          addCategory() {
+            if (this.newCategory && !this.categories.includes(this.newCategory)) {
+              this.categories.push(this.newCategory);
+              this.newCategory = '';
+              localStorage.setItem('categories', JSON.stringify(this.categories));
+              alert('Category added successfully');
+            }
+          },
+
+          exportTransactions() {
+            let csv = 'Type,Category,Amount,Date,Recurring,Currency\n';
+            this.transactions.forEach(t => {
+              csv += `${t.type},${t.category},${t.amount},${t.date},${t.recurring},${t.currency}\n`;
+            });
+            let blob = new Blob([csv], { type: 'text/csv' });
+            let a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'transactions.csv';
+            a.click();
+          },
+
+          async convertCurrency(amount, from, to) {
+            try {
+              let res = await fetch(`https://open.er-api.com/v6/latest/${from}`);
+              let data = await res.json();
+
+              let rate = data.rates[to];
+              return (amount * rate).toFixed(2);
+
+            } catch (err) {
+              console.error("Currency conversion failed", err);
+              return amount;
+            }
+          }
+        };
       }
-    },
-
-    exportTransactions() {
-      let csv = 'Type,Category,Amount,Date,Recurring,Currency\n';
-      this.transactions.forEach(t => {
-        csv += `${t.type},${t.category},${t.amount},${t.date},${t.recurring},${t.currency}\n`;
-      });
-      let blob = new Blob([csv], {type: 'text/csv'});
-      let a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'transactions.csv';
-      a.click();
-    },
-
-    async convertCurrency(amount, from, to){
-  try {
-    let res = await fetch(`https://open.er-api.com/v6/latest/${from}`);
-    let data = await res.json();
-
-    let rate = data.rates[to];
-    return (amount * rate).toFixed(2);
-
-  } catch (err) {
-    console.error("Currency conversion failed", err);
-    return amount;
-  }
-}
-  };
-}
-</script>
+    </script>
 </body>
 
 </html>
